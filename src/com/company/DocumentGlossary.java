@@ -15,16 +15,16 @@ public class DocumentGlossary extends ArrayList<GlossaryEntry> {
     public void addWord(String word, int num){
         int pos = foundOrInserted(word);
         if(pos>0) {
-            this.get(pos).add(num);
+            this.get(pos-1).add(num);
         }else{
-            this.add(new GlossaryEntry(word));
-            this.get(0).add(num);
+            //this.add(new GlossaryEntry(word));
+            //this.get(0).add(num);
         }
     }
 
     public void addAllWords(String str, int num){
         String [] s = str.split("\\W+");
-        for(int i = 0; i<s.length; i++){
+        for(int i = 0; i<s.length-1; i++){
             addWord(s[i], num);
         }
     }
